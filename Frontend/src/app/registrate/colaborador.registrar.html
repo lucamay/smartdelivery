@@ -1,0 +1,111 @@
+
+<div class="content">
+<div class="container-fluid">
+<div class="row">
+<div class="row">
+<div class="col-md-12">
+<div class="card">
+<div class="header">
+<button class="btn btn-default btn-fill" [routerLink]="['/usuarios']">
+<span class="btn-label">
+<i class="fa fa-arrow-left"></i>
+</span>
+Gestión de Usuarios
+</button>
+
+</div>
+<div class="content">
+
+<form #formUsuario="ngForm" id="form-usuario" (ngSubmit)="onSubmit()">
+<div class="row">
+
+<div class="col-md-7">
+    <div class="form-group">
+        <label>Correo Electronico<span class="start">*</span></label>
+        <input type="email" #correo="ngModel" name="correo" [(ngModel)]="usuario.correo" class="form-control"  placeholder="Correo Electronico" >
+
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-5">
+    <div class="form-group">
+        <label>Nombre(s)<span class="start">*</span></label>
+        <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="usuario.nombre" class="form-control"  placeholder="Nombre(s)" >
+    </div>
+</div>
+<div class="col-md-5 col-md-offset-1">
+    <div class="form-group">
+        <label>Apellido(s)<span class="start">*</span></label>
+        <input type="text" #apellido="ngModel" name="apellido" [(ngModel)]="usuario.apellido" class="form-control"  placeholder="Apellido(s)" >
+    </div>
+</div>
+</div>
+
+<hr>
+
+<div class="header">
+<h4 class="title">Grupo Usuario</h4>
+</div>
+
+<div class="row">
+<div class="col-md-4">
+    <div class="form-group">
+
+        <br>
+        <select #rol="ngModel" name="rol" [(ngModel)]="usuario.rol" class="form-control"  >
+            <option value="" disabled selected>Asigne una categoria </option>
+            <option class="optionselected" value="ROLE_ADMIN" >ROLE_ADMIN</option>
+            <option class="optionselected" value="ROLE_OPERATOR">ROLE_OPERATOR</option>
+        </select>
+
+    </div>
+</div>
+
+
+</div>
+
+<hr>
+
+<div class="header">
+<h4 class="title">Establecer Contraseña</h4>
+</div>
+<br>
+<div class="row">
+<div class="col-md-3 ">
+    <div class="form-group">
+        Establecer Contraseña:
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="form-group">
+
+        <input #password="ngModel" [(ngModel)]="usuario.password"  name="password" type="password" class="form-control"  required>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3 ">
+    <div class="form-group">
+        Confirmar Contraseña:
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="form-group">
+
+        <input [(ngModel)]="password2" name="password2" type="password" class="form-control" required>
+    </div>
+</div>
+</div>
+<input [disabled]="!formUsuario.form.valid" type="submit" class="btn btn-fill btn-primary " value={{titulo}} />
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<hr>
+
+</div>
+</div>
